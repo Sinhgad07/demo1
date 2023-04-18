@@ -1,9 +1,8 @@
 #include<stdio.h>
 #include<conio.h>
+
 #include"Sorting.h"
 
-
-void input_data();
 
 int main()
 {
@@ -13,8 +12,13 @@ int main()
 	printf("Enter the Element of array: ");
 	for (i = 0; i < n; i++)
 	{
-		scanf("%d", &arr[i]
+		scanf("%d", &arr[i]);
 	}
+
+	int* sorted = bubble_sort(arr);
+	int* sorted1 = insertion_sort(arr);
+	int* sorted2 = merge_sort(arr);
+
 }
 
 
