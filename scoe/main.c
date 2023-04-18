@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<conio.h>
 #include"Sorting.h"
+#define size 10
 
 void input_data();
 
@@ -25,12 +26,12 @@ int main()
 		case 2:
 			bubble();
 			break;
-		/*case 3:
+		case 3:
 			insertion_sort();
 			break;
 		case 4:
-			merge();
-			break;*/
+			merge_sort();
+			break;
 		case 0:
 			exit(0);
 			break;
@@ -54,9 +55,6 @@ void input_data()
 void bubble()
 {
 	int i, n, temp, j, arr[10];
-	printf("\n Enter the number of elements in the array : ");
-	scanf_s("%d", &n);
-	printf("\n Enter the elements: ");
 	for (i = 0; i < n; i++)
 	{
 		scanf_s("%d", &arr[i]);
@@ -93,5 +91,54 @@ void insertion_sort(int arr[], int n)
 			j--;
 		}
 		arr[j + 1] = temp;
+	}
+}
+void merge(int arr[], int beg, int mid, int end)
+{
+	int i = beg, j = mid + 1, index = beg, temp[size], k;
+	while ((i <= mid) && (j <= end))
+	{
+		if (arr[i] < arr[j])
+		{
+			temp[index] = arr[i];
+			i++;
+		}
+		else
+		{
+			temp[index] = arr[j];
+			j++;
+		}
+		index++;
+	}
+	if (i > mid)
+	{
+		while (j <= end)
+		{
+			temp[index] = arr[j];
+			j++;
+			index++;
+		}
+	}
+	else
+	{
+		while (i <= mid)
+		{
+			temp[index] = arr[i];
+			i++;
+			index++;
+		}
+	}
+	for (k = beg; k < index; k++)
+		arr[k] = temp[k];
+}
+void merge_sort(int arr[], int beg, int end)
+{
+	int mid;
+	if (beg < end)
+	{
+		mid = (beg + end) / 2;
+		merge_sort(arr, beg, mid);
+		merge_sort(arr, mid + 1, end);
+		merge(arr, beg, mid, end);
 	}
 }
