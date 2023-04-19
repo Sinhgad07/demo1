@@ -1,3 +1,5 @@
 ﻿  main.c
-main.obj : error LNK2019: unresolved external symbol bubble referenced in function main
-E:\Mahesh Projects\Solution1\x64\Debug\scoe.exe : fatal error LNK1120: 1 unresolved externals
+  sortingmethods.c
+I:\program\demo1\scoe\sortingmethods.c(22,10): warning C4098: 'bubble_sort': 'void' function returning a value
+  Generating Code...
+I:\program\demo1\scoe\sortingmethods.c(6): error C4700: uninitialized local variable 'n' used
