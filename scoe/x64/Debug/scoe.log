@@ -1,5 +1,3 @@
 ﻿  main.c
-  sortingmethods.c
-I:\program\demo1\scoe\sortingmethods.c(22,10): warning C4098: 'bubble_sort': 'void' function returning a value
-  Generating Code...
-I:\program\demo1\scoe\sortingmethods.c(6): error C4700: uninitialized local variable 'n' used
+E:\Mahesh Projects\Solution1\scoe\main.c(42,4): warning C4013: 'exit' undefined; assuming extern returning int
+  scoe.vcxproj -> E:\Mahesh Projects\Solution1\x64\Debug\scoe.exe
