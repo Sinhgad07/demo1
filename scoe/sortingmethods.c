@@ -1,18 +1,20 @@
 #include<stdio.h>
-void bubble_sort()
+void swap(int* xp, int* yp)
 {
-	int i, n, temp, j, arr[10];
+	int temp = *xp;
+	*xp = *yp;
+	*yp = temp;
+}
+void bubble_sort(int arr[], int n)
+{
+	int i, j;
 
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j < (n - 1 - i); j++)
 		{
 			if (arr[j] > arr[j + 1])
-			{
-				temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
-			}
+				swap(&arr[j], &arr[j + 1]);
 		}
 	}
 	printf("\n The array sorted in ascending order is :\n");
@@ -35,54 +37,56 @@ void insertion_sort(int arr[], int n)
 		}
 		arr[j + 1] = temp;
 	}
+	printf("\n The array sorted(insertion) in ascending order is :\n");
+	for (i = 0; i < n; i++)
+		printf("%d\t", arr[i]);
+	getchar();
+	return 0;
+
 }
-#define size 10
-void merge(int arr[], int beg, int mid, int end)
+/*/void merge_sort(int i, int j, int a[], int aux[], int arr, int n)
 {
-	int i = beg, j = mid + 1, index = beg, temp[size], k;
-	while ((i <= mid) && (j <= end))
-	{
-		if (arr[i] < arr[j])
-		{
-			temp[index] = arr[i];
-			i++;
-		}
-		else
-		{
-			temp[index] = arr[j];
-			j++;
-		}
-		index++;
+	if (j <= i) {
+		return;
 	}
-	if (i > mid)
-	{
-		while (j <= end)
-		{
-			temp[index] = arr[j];
-			j++;
-			index++;
+	int mid = (i + j) / 2;
+
+
+
+	merge_sort(i, mid, a, aux);
+	merge_sort(mid + 1, j, a, aux);
+
+	int pointer_left = i;
+	int pointer_right = mid + 1;
+	int k;
+
+
+	for (k = i; k <= j; k++) {
+		if (pointer_left == mid + 1) {
+			aux[k] = a[pointer_right];
+			pointer_right++;
+		}
+		else if (pointer_right == j + 1) {
+			aux[k] = a[pointer_left];
+			pointer_left++;
+		}
+		else if (a[pointer_left] < a[pointer_right]) {
+			aux[k] = a[pointer_left];
+			pointer_left++;
+		}
+		else {
+			aux[k] = a[pointer_right];
+			pointer_right++;
 		}
 	}
-	else
-	{
-		while (i <= mid)
-		{
-			temp[index] = arr[i];
-			i++;
-			index++;
-		}
+
+	for (k = i; k <= j; k++) {
+		a[k] = aux[k];
 	}
-	for (k = beg; k < index; k++)
-		arr[k] = temp[k];
-}
-void merge_sort(int arr[], int beg, int end)
-{
-	int mid;
-	if (beg < end)
-	{
-		mid = (beg + end) / 2;
-		merge_sort(arr, beg, mid);
-		merge_sort(arr, mid + 1, end);
-		merge(arr, beg, mid, end);
-	}
-}
+	printf("Printing the sorted array:\n");
+
+	for (i = 0; i < n; i++)
+		printf("%d\n", a[i]);
+
+	return 0;
+}*/
