@@ -1,3 +1,3 @@
-int* bubble_sort(int* arr);
-int* insertion_sort(int* arr);
-int* merge_sort(int* arr);
+int* bubble_sort(int* arr , int* n);
+int* insertion_sort(int* arr, int* n);
+int* merge_sort(int* arr,int* n);

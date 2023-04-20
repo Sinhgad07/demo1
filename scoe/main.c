@@ -30,13 +30,13 @@ int main()
 			}
 			break;
 		case 2:
-			bubble_sort(arr);
+			bubble_sort(arr,n);
 			break;
 		case 3:
-			insertion_sort(arr);
+			insertion_sort(arr,n);
 			break;
 		case 4:
-			merge_sort(arr);
+			merge_sort(arr,n);
 			break;
 		case 5:
 			exit(0);
